@@ -75,5 +75,14 @@ describe ('Weather', function(){
       });
     });
   });
+  describe('.moons' , function(){
+    it('should give us the current phase of the moon', function(done){
+      Weather.moons(37201, function(phase){
+      expect(phase).to.equal('Crescent');
+      done();
+      });
+    });
+  });
+
 });
 

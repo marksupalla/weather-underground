@@ -99,4 +99,27 @@ Weather.deltas = function(loc,cb){
   cb(deltaArray);
   });
 };
+
+Weather.moons = function(loc,cb){
+  var url = 'http://api.wunderground.com/api/e972031c42874e44/astronomy/q/' + loc + '.json';
+  var phase;
+  var percent;
+  request(url, function(error, response, body){
+    body = JSON.parse(body);
+    percent = parseInt(body.moon_phase.percentIlluminated); 
+
+    if(percent > 94){
+      cb('Full');
+    }else if(percent > 56){
+      cb('Gibbous');
+    }else if(percent > 45){
+      cb('Quarter');
+    }else if(percent > 6){
+      cb('Crescent');
+    }else{
+      cb('New');
+    }
+  console.log(phase);
+  });
+};
 module.exports = Weather;
