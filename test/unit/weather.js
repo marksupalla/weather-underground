@@ -26,6 +26,26 @@ describe ('Weather', function(){
       });
     });
   });
+  
+  describe('.avghigh' , function(){
+    it('should return the avg high for last 10 days', function(done){
+      Weather.avghigh(37203, function(avg){
+      expect(avg).to.be.ok;
+      expect(avg.length).to.be.at.least(2);
+      done();
+      });
+    });
+  });
+  describe('.avglow' , function(){
+    it('should return the avg low for last 10 days', function(done){
+      Weather.avglow(37203, function(avg){
+      expect(avg).to.be.ok;
+      expect(avg.length).to.be.at.least(2);
+      done();
+      });
+    });
+  });
+
 });
 
 
