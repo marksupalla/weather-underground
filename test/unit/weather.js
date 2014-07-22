@@ -46,6 +46,34 @@ describe ('Weather', function(){
     });
   });
 
-});
+  describe('.highs' , function(){
+    it('should return list of high temps for last ten days',function(done){
+      Weather.highs(37201, function(list){
+      expect(list.length).to.equal(10);
+      expect(list[0]).to.be.within(-50,150);
+      done();
+      });
+    });
+  });
 
+  describe('.lows' , function(){
+    it('should return list of low temps for last ten days',function(done){
+      Weather.lows(37201, function(list){
+      expect(list.length).to.equal(10);
+      expect(list[0]).to.be.within(-50,150);
+      done();
+      });
+    });
+  });
+
+  describe('.deltas' , function(){
+    it('should return list of delta temps for last ten days',function(done){
+      Weather.deltas(37201, function(list){
+      expect(list.length).to.equal(10);
+      expect(list[0]).to.be.within(-50,150);
+      done();
+      });
+    });
+  });
+});
 
